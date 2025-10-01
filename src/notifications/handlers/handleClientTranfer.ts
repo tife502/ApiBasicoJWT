@@ -1,8 +1,8 @@
 // transferHandler.ts
 import { WebSocket } from 'ws';
 import { ClientMetadata } from './types';
-import { AssignmentManager } from './assigmentManager';
-import { DataManager } from '../../domain/class/dataManager';
+// import { AssignmentManager } from './assigmentManager';
+// import { DataManager } from '../../domain/classes/dataManager';
 
 
 export class TransferHandler {
@@ -34,7 +34,7 @@ export class TransferHandler {
     // }
   
     // Actualizar categoría en DataManager (y base de datos si aplica)
-    await DataManager.getInstance().updateClientCategory(targetClientId, newCategory);
+    // await DataManager.getInstance().updateClientCategory(targetClientId, newCategory);
   
     // Notificar a todos los agentes afectados
     this.broadcastCategoryUpdate(clients, newCategory, targetClientId);
