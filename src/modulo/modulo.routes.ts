@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import { ModuloController } from "./modulo.controller";
+import { AuthMiddleware } from "../presentation/middlewares/auth.middleware";
 
 export class ModuloRoutes {
 
@@ -10,8 +11,8 @@ export class ModuloRoutes {
 
     const moduloController =new ModuloController();
 
-    //funciones de recepcion de mensajes usuarios
-    router.post(`/ejemplo`,moduloController.onSomething);
+    //funciones de recepcion de mensajes usuarios - protegidas con JWT
+    router.post(`/ejemplo`, AuthMiddleware.validateJWT, moduloController.onSomething);
    
     
 return router;
